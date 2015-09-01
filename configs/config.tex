@@ -1,0 +1,374 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% КОНФИГУРАЦИОННЫЙ ФАЙЛ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Подключаем и настраиваем стилевой пакет KOMA-Sript
+\documentclass{scrreprt}
+\KOMAoptions{
+  fontsize = 12pt, 
+  numbers = periodatend, 
+  chapteratlists,
+  headings = chapterprefix,
+  toc = bib,
+  captions = tableheading,
+  draft
+}
+
+%% Настраиваем формат подписей к таблицам и рисункам
+\setkomafont{captionlabel}{\bfseries\sffamily}
+\setkomafont{caption}{\sffamily}
+\renewcommand*{\captionformat}{~}
+
+%% Настраиваем формат сноски
+\deffootnote[1.5em]{0em}{1em}{\textsuperscript{\thefootnotemark}\,}
+
+%% Выключаем предупреждение об использовании устаревшего макроса \float@addtolist,
+%% который присутствует, например, в пакете listings
+\usepackage{scrhack}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Настраиваем кодировкии и язык
+\defaulthyphenchar=127
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[english, greek, russian]{babel}
+
+%% Настраиваем поля и внешний вид страницы
+\usepackage{geometry}   
+\geometry{
+  left = 3cm,
+  right = 2cm,
+  top = 2cm,
+  bottom = 2cm,
+  headheight = 1cm,
+  headsep = 0.5cm,
+  footskip = 1cm
+}
+
+%% Устанавливаем полуторный межстрочный интервал
+\usepackage{setspace}
+\onehalfspacing
+
+%% Включаем отступ у первого абзаца
+\usepackage{indentfirst}
+%5 Устанавливаем значение абазацного отступа
+\setlength{\parindent}{1cm} 
+
+%% Микротипографика (оптическое выравнивание текста)
+\usepackage[protrusion, expansion]{microtype}
+
+%% Подключаем и настраиваем пакет для подрисунков
+\usepackage[hang, raggedright, small]{subfigure}
+% Подрисунки обозначаются русскими буквами
+\renewcommand{\thesubfigure}{\emph{\asbuk{subfigure}}}
+\makeatletter
+  \renewcommand{\p@subfigure}{\thefigure}
+  \renewcommand{\@thesubfigure}{\emph{\asbuk{subfigure}})~}
+\makeatother
+
+\renewcommand{\thesubtable}{\emph{\asbuk{subtable}}}
+\makeatletter
+  \renewcommand{\p@subtable}{\thetable}
+  \renewcommand{\@thesubtable}{\emph{\asbuk{subtable}})~}
+\makeatother
+
+%% Пакет, который не позволяет плавающим объетам выходить за пределы разделов
+\usepackage[section]{placeins}
+\makeatletter 
+% Дополним, чтобы они не выходили и за пределы подразделов
+\AtBeginDocument{%
+  \expandafter\renewcommand\expandafter\subsection\expandafter
+    {\expandafter\@fb@subsecFB\subsection}%
+  \newcommand\@fb@subsecFB{\FloatBarrier
+  \gdef\@fb@afterHHook{\@fb@topbarrier \gdef\@fb@afterHHook{}}}
+  \g@addto@macro\@afterheading{\@fb@afterHHook}
+  \gdef\@fb@afterHHook{}
+}
+\makeatother 
+
+%% Подключаем пакет TikZ и дополнительные пакеты к нему 
+\usepackage{tikz}
+\makeatletter
+\pgfdeclareshape{fflop} {
+  \inheritsavedanchors[from=rectangle]
+  \inheritanchorborder[from=rectangle]
+  \inheritanchor[from=rectangle] {center}
+  \inheritanchor[from=rectangle] {north}
+  \inheritanchor[from=rectangle] {south}
+  \inheritanchor[from=rectangle] {west}
+  \inheritanchor[from=rectangle] {east}
+
+  \backgroundpath{
+    % Store lower right in xa/ya and upper right in xb/yb
+    \southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+
+    \pgf@xc=.5\wd\pgfnodeparttextbox
+    \pgf@yc=\pgf@ya \advance\pgf@yc by 10pt
+    % Rectangle
+    \pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@ya}}
+    \pgfpathlineto{\pgfpoint{\pgf@xa}{\pgf@yb}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@yb}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@yb}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@ya}}
+    \pgfpathclose
+    % Add triangle at the bottom
+    \pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@ya}}
+    \pgfpathlineto{\pgfpoint{\pgf@xc}{\pgf@yc}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@ya}}
+  }
+}
+\makeatother
+
+\usetikzlibrary{
+  shapes,
+  arrows,
+  intersections,
+  positioning,
+  fit
+}
+\tikzset{
+  font = \small\sffamily,
+  inner sep = 5pt,
+  node distance = 20pt,
+  trapezium stretches body,
+  every fit/.append style = text badly centered,
+  pre/.style = {<-, shorten <=1pt, >=stealth'},
+  post/.style = {->, shorten >=1pt, >=stealth'},
+  block/.style = {
+    draw = #1!80,
+    fill = #1!20,
+    align = center,
+    text badly centered
+  },
+  block/.default = blue,
+  flop/.style = {
+    block = gray,
+    shape = fflop,
+    minimum width = .5cm,
+    minimum height = 1.5cm
+  },
+  port/.style = {
+    block = red,
+    font = \rmfamily,
+    text width = .3cm,
+    minimum height = .5cm
+  },
+  mux/.style = {
+    block = gray,
+    trapezium,
+    shape border uses incircle,
+    shape border rotate = -90,
+    minimum width = 1cm
+  },
+  demux/.style = {
+    mux,
+    shape border rotate = 90
+  },
+  FSM/.style = {
+    block = red,
+    rounded corners,
+    minimum height = 1cm,
+    minimum width = 1.5cm
+  },
+  label/.style = {
+    font = \scriptsize\sffamily,
+    inner sep = 1pt
+  },
+  exchange/.style = {
+    <->,
+    shorten <=1pt,
+    shorten >=1pt,
+    >=fast cap,
+    line width = 5pt
+  }, 
+  arith/.style = {
+    block,
+    minimum width =  1.5cm,
+    minimum height = 1.5cm
+  },
+  module/.style = {
+    draw = black!50,
+    fill = yellow!20,
+    rounded corners,
+    inner sep = 10pt,
+    dashed
+  }
+}
+% Настраиваем слои
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+%% Подключаем и настраиваем пакет для кастомизированных списков
+\usepackage{enumitem}
+% Регистрируем новый счетчик для списков с русскими буквами
+\makeatletter
+  \AddEnumerateCounter{\asbuk}{\@asbuk}{\cyrzh}
+  \AddEnumerateCounter{\Asbuk}{\@Asbuk}{\CYRZH}
+\makeatother
+% Убирем промежутки до и после списка и настраиваем выравнивание
+\setlist{leftmargin = *, nolistsep}
+% Для списков первого уровня устанавливаем отсуп, равный абзацному
+\setlist[1]{labelindent = \parindent}
+% Перечислением по умолчанием делаем счет вида 1)
+\setenumerate{label = \arabic*)}
+% Символом для списков по умолчанию делаем тире
+\setitemize{label = \textemdash}
+
+%% Настраиваем пакеты для работы с таблицами
+\usepackage{longtable, array, colortbl}
+\usepackage{booktabs}
+\usepackage{multirow}
+\newcolumntype{L}{>{$}l<{$}}
+\newcolumntype{C}{>{$}c<{$}}
+
+% Математическая (math) колонка
+\newcolumntype{m}[1]{>{\raggedright\arraybackslash $}p{#1}<{$}}
+% Текстовая (text) колонка
+\newcolumntype{t}[1]{>{\raggedright\arraybackslash}p{#1}<{}}
+\renewcommand{\arraystretch}{1.3}
+\renewcommand{\arrayrulewidth}{0.6pt}
+% Устанавливаем цвет для ячеек шапки таблицы
+\colorlet{tableheadcolor}{gray!25}
+
+\usepackage{lscape, pdflscape} 
+\usepackage{amsmath, amssymb, ifthen, calc}
+
+\usepackage[group-minimum-digits = 4]{siunitx}
+
+%% Подключаем пакет xspace
+\usepackage{xspace}
+% Чтобы не ставил пробел перед кавычками и после кавычек
+\xspaceaddexceptions{<< >> ,, ``}
+
+%% Подключаем пакет дат
+\usepackage{datetime}
+% Устанавливаем формат даты
+\ddmmyydate
+
+%% Подключаем пакет для отображения листингов программ
+\usepackage{listings}
+
+\renewcommand{\lstlistingname}{Листинг}
+% Ставим точку после номера перед названием
+\makeatletter
+  \AtBeginDocument{\renewcommand \thelstlisting{\thechapter.\@arabic\c@lstlisting\autodot}}
+\makeatother
+% Настраиваем стиль по-умолчанию
+
+
+\DeclareNewTOC[
+  type = codebox,
+  types = codeboxes,
+  float,
+  floatpos = h,
+  floattype = 4,
+  nonfloat,
+  name = Листинг,
+  listname = {Список листингов}
+]{lor}
+\setuptoc{lor}{chapteratlist}
+\makeatletter
+  \AtBeginDocument{\renewcommand \thecodebox{\thechapter.\@arabic\c@codebox}}
+\makeatother
+
+%% Подключаем пакет для форматирования алгоритмов
+\usepackage[noend]{algorithmic}
+\algsetup{
+  linenosize = \tiny,
+  linenodelimiter = \ 
+}
+% Русифицируем ключевые слова
+\def\algorithmicrequire{\textbf{Вход:}}
+\def\algorithmicensure{\textbf{Выход:}}
+\def\algorithmicif{\textbf{если}}
+\def\algorithmicthen{\textbf{то}}
+\def\algorithmicelse{\textbf{иначе}}
+\def\algorithmicelsif{\textbf{иначе если}}
+\def\algorithmicfor{\textbf{для}}
+\def\algorithmicforall{\textbf{для всех}}
+\def\algorithmicdo{}
+\def\algorithmicwhile{\textbf{пока}}
+\def\algorithmicrepeat{\textbf{повторять}}
+\def\algorithmicuntil{\textbf{пока}}
+\def\algorithmicloop{\textbf{цикл}}
+\def\algorithmiccomment#1{\quad/\!/ \textit{#1}}
+
+%% Подсключаем пакет для отображения гиперссылок
+\usepackage{hyperref}
+\urlstyle{sf}
+
+% Делаем правильный кернинг двойного слеша
+\makeatletter
+\g@addto@macro{\Url@acthash}{\Url@Edit\Url@String{//}{/\kern-0.2em/}}
+\makeatother
+
+% Русский математический рукописный шрифт
+\usepackage{mathrsfs}
+
+% Готический шрифт
+\usepackage{yfonts}
+
+% Диаграммы
+\usepackage{pb-diagram}
+
+% Для многострочных комментариев
+\usepackage{verbatim}
+
+%% Делаем подсчет объектов (страниц, рисунков, таблиц, биб. записей) в документе
+\usepackage{totcount, etoolbox}
+\regtotcounter{page}
+\regtotcounter{figure}
+\regtotcounter{table}
+\regtotcounter{enumiv}
+
+\newcounter{totfigures}
+\newcounter{tottables}
+
+\providecommand\totfig{} 
+\providecommand\tottab{}
+
+\makeatletter
+\AtEndDocument{%
+  \addtocounter{totfigures}{\value{figure}}%
+  \addtocounter{tottables}{\value{table}}%
+  \immediate\write\@mainaux{%
+    \string\gdef\string\totfig{\number\value{totfigures}}%
+    \string\gdef\string\tottab{\number\value{tottables}}%
+  }%
+}
+\makeatother
+
+\pretocmd{\chapter}{\addtocounter{totfigures}{\value{figure}}\setcounter{figure}{0}}{}{}
+\pretocmd{\chapter}{\addtocounter{tottables}{\value{table}}\setcounter{table}{0}}{}{} 
+
+% Пакет для создания алфавитных указателей
+\usepackage{makeidx}
+
+% Пакет для эпиграфов
+\usepackage{epigraph}
+
+% Subsection без нумерации
+\makeatletter
+\newcommand*\addsubsec{\secdef\@addsubsec\@saddsubsec}
+\newcommand*{\@addsubsec}{}
+\def\@addsubsec[#1]#2{\subsection*{#2}\addcontentsline{toc}{subsection}{#1}
+  \if@twoside\ifx\@mkboth\markboth\markright{#1}\fi\fi
+}
+\newcommand*{\@saddsubsec}[1]{\subsection*{#1}\@mkboth{}{}}
+\makeatother
+
+% Subsubsection без нумерации
+\makeatletter
+\newcommand*\addsubsubsec{\secdef\@addsubsubsec\@saddsubsubsec}
+\newcommand*{\@addsubsubsec}{}
+\def\@addsubsubsec[#1]#2{\subsubsection*{#2}\addcontentsline{toc}{subsubsection}{#1}
+  \if@twoside\ifx\@mkboth\markboth\markright{#1}\fi\fi
+}
+\newcommand*{\@saddsubsubsec}[1]{\subsubsection*{#1}\@mkboth{}{}}
+\makeatother

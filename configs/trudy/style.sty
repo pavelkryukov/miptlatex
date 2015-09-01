@@ -1,0 +1,227 @@
+\usepackage{subfigure}
+%подписи а), б)... под рисунками
+\renewcommand{\thesubfigure}{\asbuk{subfigure})}
+\usepackage[subfigure]{tocloft}
+\usepackage{newfile}
+
+% \usepackage{authblk}
+% \renewcommand\Authands{, }
+% \renewcommand\Authand{, }
+% \renewcommand\Affilfont{\small\normalfont}
+% \renewcommand\Authfont{\itshape}
+
+% убираем пробел после запятой
+% \DeclareMathSymbol{,}{\mathord}{letters}{"3B}
+
+% нумерация секций и рисунков
+\renewcommand*{\thesection}{\arabic{section}}
+\renewcommand*{\thefigure}{\arabic{figure}}
+
+% класс abstract для книги
+\newenvironment{abstract}{\quotation \small}{\endquotation}
+
+\pagestyle{myheadings}
+
+% колотитул на левой странице
+\renewcommand{\@evenhead}{%
+    \raisebox{0pt}[\headheight][0pt]{%
+    \vbox{\hbox to \textwidth{%
+        \thepage\hfil{\slshape\leftmark}\hfil\issuemark\strut}
+        \hrule}}}
+
+% колонтитул на правой странице
+\renewcommand{\@oddhead}{%
+    \raisebox{0pt}[\headheight][0pt]{%
+    \vbox{\hbox to\textwidth{%
+        \issuemark\hfil{\slshape\rightmark}\hfil\thepage\strut}
+        \hrule}}}
+
+% отступ от верхнего колонтитула
+\setlength{\headsep}{1.0\baselineskip}
+
+% начало новой части (тематики)
+\renewcommand{\part}{%
+\secdef\@part\@spart}
+
+\def\@part[#1]#2{%
+\addcontentsline{toc}{part}{\protect #1}
+\refstepcounter{part}
+\markboth{#1}{}}
+
+\def\@spart#1{\relax}
+
+\setcounter{tocdepth}{0}
+
+% глава для отдельной статьи
+\renewcommand{\chapter}{%
+\global\@topnum\z@
+\secdef\@chapter\@schaper
+}
+
+\renewcommand{\@chapter}[2][]{%
+  \clearpage
+  \addcontentsline{toc}{chapter}{\protect\numberline{}#2}
+  \refstepcounter{chapter}
+  \markright{#1}
+}
+
+% глава со звездочкой для списка литературы
+% \def\@schaper#1{
+% \section*{#1}}
+
+% % запись в оглавлении
+% \renewcommand*\l@chapter[2]{%
+% \ifnum \c@tocdepth >\m@ne
+%     \vskip 1.0em \@plus\p@
+%     \setlength\@tempdima{2em}%
+%     \begingroup
+%       \parindent \z@
+%       \rightskip \@pnumwidth
+%       \parfillskip -\@pnumwidth
+%       \leavevmode
+%        \advance\leftskip\@tempdima
+%        \hskip -\leftskip
+%       {\protect\hyphenpenalty=10000 #1}\nobreak\dotfill%
+% \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+%     \endgroup
+% \fi}
+
+\renewcommand{\cftchapfont}{\normalfont\raggedright}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftchapleader}{\cftdotfill{2}}
+\cftsetrmarg{5em}
+\setlength{\cftchapnumwidth}{0pt}
+
+\renewcommand*{\@biblabel}[1]{\hfill\bfseries#1.}
+% \renewcommand*{\@biblabel}[1]{\bfseries #1.\hfil}
+
+\renewenvironment{thebibliography}[1]
+     {\section*{\bibname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+% 	    \leftmargin=0pt
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+% 	    \itemindent\labelwidth
+% 	    \advance\itemindent\labelsep
+% 	    \advance\itemindent\parindent
+	    \itemsep\z@
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty10000
+      \@clubpenalty \clubpenalty
+      \widowpenalty10000%
+      \sfcode`\.\@m}%
+     {\endlist}
+
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+                                   {-3.0ex \@plus -0.5ex \@minus -.2ex}%
+                                   {1.8ex \@plus.2ex}%
+                  {\raggedright\large\bfseries}}
+
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                    {2.0ex \@plus .2ex \@minus.1ex}%
+                                    {-1ex}%
+                                    {\normalfont\normalsize\bfseries}}
+
+% \renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\theequation}{\arabic{equation}}
+
+\newcommand{\kw}[1]{\medskip\par\textbf{#1:}~}
+\newcommand{\kwr}{\kw{Ключевые слова}}
+\newcommand{\kwe}{\kw{Key words}}
+
+\newcounter{authors}
+\newcommand{\@authlist}{}
+\newcommand{\@authors}{}
+\newcommand{\@affillist}{}
+
+\newcommand{\clearauthors}{
+\global\let\@title\@empty
+\global\let\@authlist\@empty
+\global\let\@authors\@empty
+\global\let\@affillist\@empty
+\global\let\UDK\@empty
+\setcounter{authors}{0}}
+
+
+\renewcommand\author[3][\@empty]{%
+\ifx\@empty #1
+  \def\@note{}
+\else
+  \def\@note{$^{#1}$}
+\fi
+\addtocounter{authors}{1}%
+\ifnum\value{authors}>1
+  \def\@sep{, }
+\else
+  \def\@sep{}
+  \gdef\@firstauthor{#2}
+\fi
+\begingroup
+  \let\protect\@unexpandable@protect
+  \edef\@itema{\@sep#2~#3\@note}
+  \@temptokena=\expandafter{\@authlist}%
+  \xdef\@authlist{\the\@temptokena\@itema}
+  \edef\@itemb{\@sep#3~#2}
+  \@temptokena=\expandafter{\@authors}%
+  \xdef\@authors{\the\@temptokena\@itemb}
+\endgroup}
+
+\newcommand\affil[2][\@empty]{%
+\ifx\@empty #1
+  \def\@note{}
+\else
+  \def\@note{$^{#1}$}
+\fi
+\xdef\@affillist{\@affillist\par\@note #2}}
+
+\renewcommand{\@author}{\@authlist}
+\newcommand{\@affil}{\@affillist}
+
+
+%заголовок статьи
+\renewcommand{\maketitle}{%
+\parbox{0.9\textwidth}{\centering
+{\itshape\@authlist\par}
+\medskip
+{\footnotesize\@affillist\par}
+\par\bigskip
+{\Large\bfseries\@title\par}}
+\bigskip
+\clearauthors}
+
+% \newcommand{\etp}[1]{\enlargethispage{#1\baselineskip}}
+
+% \newcommand{\themeline}{\hfil \hbox to 0.3\textwidth{\hrulefill}
+% \smallskip\par}
+
+\newcommand{\arthead}[2]{\par\medskip
+{\centering \itshape #1 \par}
+\medskip
+{\centering \bfseries #2 \par}}
+
+\newcommand{\inputarticle}[3][\@empty]{% #1УДК #2name #3shortauthor
+\chapter[#3]{\protect{\itshape\@authors}~~\@title}
+
+\graphicspath{{./#2/}}
+
+\ifx\@empty #1
+  \medskip
+\else
+  {\raggedright УДК~#1\par}
+  \bigskip%
+\fi
+
+\maketitle
+
+\label{#2}
+\input{#2/#2}
+\label{#2_1}
+}
+
+\uchyph=0
+\hfuzz=1pt

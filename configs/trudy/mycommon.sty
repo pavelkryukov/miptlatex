@@ -1,0 +1,120 @@
+% \usepackage{subfigure}
+% %подписи а), б)... под рисунками
+% \renewcommand{\thesubfigure}{\asbuk{subfigure})}
+
+% \usepackage{authblk}
+% \renewcommand\Authands{, }
+% \renewcommand\Authand{, }
+% \renewcommand\Affilfont{\small}
+
+\newcommand{\ppd}[2]{\frac{\partial #1}{\partial #2}}
+
+\frenchspacing
+\righthyphenmin=2
+\binoppenalty=10000
+\relpenalty=10000
+
+% пр€мые интегралы
+\DeclareSymbolFont{lsymb}{U}{euex}{m}{n}
+\DeclareMathSymbol{\intop}{\mathop}{lsymb}{"52}
+\DeclareMathSymbol{\ointop}{\mathop}{lsymb}{"48}
+\DeclareMathSymbol{\smallint}{\mathop}{lsymb}{"52}
+
+% убираем пробел после зап€той
+% \DeclareMathSymbol{,}{\mathord}{letters}{"3B}
+
+%метки в списке литературы
+\renewcommand*{\@biblabel}[1]{#1. \hfill}
+
+%перенос в формулах
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+\newcommand\unit[2][]{\ensuremath{#1\;#2}}
+
+\newcommand\sci[3][]{%
+\def\emptyM{#1}%
+\def\emptyV{#2}%
+\def\emptyR{#3}%
+\ensuremath{%
+\ifx\emptyM\empty
+   \ifx\emptyV\empty
+\relax
+   \else
+#2\;
+   \fi
+\else
+   \ifx\emptyV\empty
+10^{#1}\,
+   \else
+#2\cdot10^{#1}\,
+   \fi
+\fi
+\ifx\emptyR\empty
+\relax
+\else
+#3
+\fi}}
+
+\newcommand\sce[3][]{%
+\def\emptyM{#1}%
+\def\emptyV{#2}%
+\def\emptyR{#3}%
+\ensuremath{%
+\ifx\emptyM\empty
+  \ifx\emptyV\empty
+\relax
+  \else
+#2\;
+  \fi
+\else
+  \ifx\emptyV\empty
+10^{#1}\,
+  \else
+#2\cdot10^{#1}\,
+  \fi
+\fi
+\ifx\emptyR\empty
+\relax
+\else
+\mathrm{#3}}}
+
+\newcommand{\celsius}{\ensuremath{^\circ\mathrm{C}}}
+
+\let\ophi\phi
+\renewcommand*{\phi}{\varphi}
+
+\let\oepsilon\epsilon
+\renewcommand*{\epsilon}{\varepsilon}
+
+\renewcommand*{\le}{\leqslant}
+\renewcommand*{\ge}{\geqslant}
+
+\newcommand*{\const}{\ensuremath{\mathrm{const}}}
+
+% \newcommand{\grad}{\mathop{\mathrm{grad}}\nolimits}
+% \newcommand{\rot}{\mathop{\mathrm{rot}}\nolimits}
+% \newcommand{\divergence}{\mathop{\mathrm{div}}\nolimits}
+
+\newcommand{\ngrad}{\nabla}
+\newcommand{\nrot}{\nabla\times}
+\newcommand{\ndiv}{\nabla\cdot}
+
+\newcommand{\fx}[1]{\bigl( {#1} \bigr) }
+
+\def\NA{\ensuremath{N_{\tiny ј}}}
+\def\kB{\ensuremath{k_{\tiny Ѕ}}}
+\def\EMF{\ensuremath{\cal E}}
+
+\newcommand{\lambdabar}{\ensuremath{\mathchar'26\mkern-10mu\lambda}}
+
+\newcommand{\etp}[1]{\enlargethispage{#1\baselineskip}}
+
+\newcommand{\themeline}{\hfil \hbox to 0.3\textwidth{\hrulefill} \smallskip\par}
+
+\renewcommand*{\@seccntformat}[1]{%
+  \csname the#1\endcsname.\quad
+}
+
+
+
