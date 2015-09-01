@@ -1,0 +1,67 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Титульный лист
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Изменяем слегка нижнее поле страницы
+\newgeometry{left=3cm, right=2cm, top=2cm, bottom=1cm} 
+\onehalfspacing
+
+\begin{titlepage}
+
+\begin{center}
+  Министерство образования и~науки Российской Федерации\\
+  Московский физико"=технический институт (государственный университет)\\
+  Факультет радиотехники и~кибернетики\\
+  \textsf{Кафедра теоретической физики}
+
+  \begin{flushright}
+    \textsf{УДК 536.22}
+%    \textit{На правах рукописи}
+  \end{flushright}
+
+  \vspace{15mm}  
+  {\large Крюков Павел Игоревич}
+
+  \bigskip
+  {\LARGE\sffamily\bfseries
+    \worktitle\\
+  }
+
+  \bigskip
+  \textsf{\worksubject}
+
+\end{center}
+
+\vspace*{\fill}
+\begin{flushright}
+  \newlength{\signline}
+  \newlength{\signskip}
+  \newcommand{\signtext}{{\footnotesize\sffamily(подпись и дата)}}
+  \setlength{\signline}{50mm}
+  \setlength{\signskip}{\signline-\widthof{\signtext}}
+  \newcommand{\signplace}{\bigskip\rule{\signline}{.6pt}\\[-2mm]\signtext\hspace*{.5\signskip}}
+
+  \bigskip\bigskipНаучный руководитель:      
+  \par\smallskip
+  д.\,ф.-м.\,н.\\
+  Крайнов Владимир Павлович
+  \par\signplace
+    
+  \bigskip\bigskipИсполнитель: 
+  \par\smallskip
+  студент 916 гр.\\
+  Крюков Павел Игоревич
+  \par\signplace
+  
+\end{flushright}
+
+\vspace*{\fill}
+\begin{center}
+  Москва\\
+  2014
+\end{center}
+
+\end{titlepage}
+
+%% Восстанавливаем исходную геометрию страницы
+\restoregeometry

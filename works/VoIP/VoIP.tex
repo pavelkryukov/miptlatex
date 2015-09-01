@@ -1,0 +1,56 @@
+% Общая конфигурация
+\input{../../configs/config.tex}
+\input{../../configs/macros.tex}
+\input{../../configs/biblio.tex}
+
+% Названия
+\newcommand{\worktitle}{Пути и способы реализации компьютерной IP-телефонии в сетях ЭВМ}
+\newcommand{\worksubject}{Реферат по курсу <<Архитектура и технологии сетей>>}
+
+% Настраиваем параметры документа
+\hypersetup{
+  unicode,
+  colorlinks,
+  linkcolor = blue,
+  citecolor = red,
+  bookmarksopen = true,
+  bookmarksnumbered = true,
+  bookmarksopenlevel = 1,
+  pdftitle = {\worktitle},
+  pdfauthor = {Павел Крюков <kryukov@frtk.ru>},
+  pdfsubject = {\worksubject},
+  pdfkeywords = {гидродинамика, жидкость, несжимаемая, теплопроводность},
+  pdfcreator = {LaTeX 2e with TeXnicCenter 2.0},
+  pdflang = {ru-RU},
+  pdfpagelayout = {SinglePage}
+}
+
+\begin{document}
+
+%% Титульный лист
+\include{chapters/title}
+
+%% Содержание
+\include{chapters/contents}
+
+%% Введение
+\include{chapters/intro}
+
+%% Сравнительный анализ
+\include{chapters/analysis}
+
+%% Анализ рынка
+\include{chapters/market}
+
+%% Заключение
+\include{chapters/outro}
+
+%% Список литературы
+\include{chapters/bibliography}
+
+%% Приложения
+\appendix
+% Делаем нумерацию приложений русскими буквами
+\renewcommand{\thechapter}{\Asbuk{chapter}}
+
+\end{document}

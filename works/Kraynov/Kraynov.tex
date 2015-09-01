@@ -1,0 +1,41 @@
+% Общая конфигурация
+\input{../../configs/config.tex}
+\input{../../configs/macros.tex}
+\input{../../configs/biblio.tex}
+
+% Названия
+\newcommand{\worktitle}{Теплопроводность в несжимаемой жидкости}
+\newcommand{\worksubject}{Курсовая работа по курсу <<Качественные методы гидродинамики>>}
+
+% Настраиваем параметры документа
+\hypersetup{
+  unicode,
+  colorlinks,
+  linkcolor = blue,
+  citecolor = red,
+  bookmarksopen = true,
+  bookmarksnumbered = true,
+  bookmarksopenlevel = 1,
+  pdftitle = {\worktitle},
+  pdfauthor = {Павел Крюков <kryukov@frtk.ru>},
+  pdfsubject = {\worksubject},
+  pdfkeywords = {гидродинамика, жидкость, несжимаемая, теплопроводность},
+  pdfcreator = {LaTeX 2e with TeXnicCenter 2.0},
+  pdflang = {ru-RU},
+  pdfpagelayout = {SinglePage}
+}
+
+\begin{document}
+
+%% Титульный лист
+\include{chapters/title}
+
+%% Тело
+\include{chapters/body}
+
+%% Приложения
+\appendix
+% Делаем нумерацию приложений русскими буквами
+\renewcommand{\thechapter}{\Asbuk{chapter}}
+
+\end{document}
