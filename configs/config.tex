@@ -372,3 +372,24 @@
 }
 \newcommand*{\@saddsubsubsec}[1]{\subsubsection*{#1}\@mkboth{}{}}
 \makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Делаем правильные переносы в математических формулах, когда
+%% знак операции повторяется на новой строке 
+%%
+%% Код основан на коде пакета 'russmath', автор: leontiev@aport.ru
+%%
+\newif\ifBrkFlag
+\def\allowmathbreak{\global\BrkFlagtrue\global\relpenalty=10000\global\binoppenalty=10000}
+\def\cancelmathbreak{\global\BrkFlagfalse\global\relpenalty=500\global\binoppenalty=700}
+\allowmathbreak
+
+\makeatletter
+\def\m@th{\mathsurround=0pt}
+\def\@thick{\hbox{\m@th$\mskip\thickmuskip$}}
+\def\@med{\hbox{\m@th$\mskip\medmuskip$}}
+
+\def\brel#1{\ifBrkFlag\discretionary{\@thick\hbox{\m@th$#1$}}{}{}\fi #1}
+\def\bbin#1{\ifBrkFlag\discretionary{\@med\hbox{\m@th$#1$}}{}{}\fi #1}
+\makeatother
