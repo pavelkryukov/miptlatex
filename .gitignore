@@ -1,0 +1,13 @@
+*.aux
+*.tmp
+*.ind
+*.idx
+*.ilg
+*.out
+*.log
+*.tps
+*.bbl
+*.pdf
+*.toc
+*.tps
+*.backup
