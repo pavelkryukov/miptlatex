@@ -325,33 +325,45 @@
 \regtotcounter{page}
 \regtotcounter{figure}
 \regtotcounter{table}
+\regtotcounter{codebox}
 \regtotcounter{enumiv}
 
 \newcounter{totfigures}
 \newcounter{tottables}
+\newcounter{totlistings}
 
 \providecommand\totfig{} 
 \providecommand\tottab{}
+\providecommand\totlst{}
 
 \makeatletter
 \AtEndDocument{%
   \addtocounter{totfigures}{\value{figure}}%
   \addtocounter{tottables}{\value{table}}%
+  \addtocounter{totlistings}{\value{codebox}}%
   \immediate\write\@mainaux{%
     \string\gdef\string\totfig{\number\value{totfigures}}%
     \string\gdef\string\tottab{\number\value{tottables}}%
+    \string\gdef\string\totlst{\number\value{totlistings}}%
   }%
 }
 \makeatother
 
 \pretocmd{\chapter}{\addtocounter{totfigures}{\value{figure}}\setcounter{figure}{0}}{}{}
 \pretocmd{\chapter}{\addtocounter{tottables}{\value{table}}\setcounter{table}{0}}{}{} 
+\pretocmd{\chapter}{\addtocounter{totlistings}{\value{codebox}}\setcounter{codebox}{0}}{}{}
 
 % Пакет для создания алфавитных указателей
 \usepackage{makeidx}
 
 % Пакет для эпиграфов
 \usepackage{epigraph}
+
+% Пакет для ссылки на последнюю страницу
+\usepackage{lastpage}
+
+% Стрелки в тексте вне формул
+\usepackage{textcomp}
 
 % Subsection без нумерации
 \makeatletter
@@ -372,7 +384,6 @@
 }
 \newcommand*{\@saddsubsubsec}[1]{\subsubsection*{#1}\@mkboth{}{}}
 \makeatother
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Делаем правильные переносы в математических формулах, когда
