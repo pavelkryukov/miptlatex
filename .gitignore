@@ -10,5 +10,6 @@
 *.pdf
 *.toc
 *.tps
+*.bak
 *.backup
 /works
