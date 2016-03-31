@@ -7,18 +7,19 @@
 			<makeIndexCommand execute="false" path="makeindex.exe" arguments="&quot;%tm.idx&quot; -t &quot;%tm.ilg&quot; -o &quot;%tm.ind&quot;"/>
 			<preProcessors>
 				<processor name="BiBTeX" path="BiBTeX.bat" arguments="" inputFile="" outputFile=""/>
-				<processor name="Sed1" path="sed.exe" arguments="-f D:\Dev\MIPT\TeX\tools\rumkidx1.sed" inputFile="%tm.idx" outputFile="%tm.idx.tmp"/>
+				<processor name="Makeindex-init" path="typenul.bat" arguments="%tm.idx" inputFile="" outputFile=""/>
+				<processor name="Makeindex-sed1" path="sed.exe" arguments="-f D:\TeX\tools\rumkidx1.sed" inputFile="%tm.idx" outputFile="%tm.idx.tmp"/>
 				<processor name="Makeindex" path="makeindex.exe" arguments="-t %tm.ilg" inputFile="%tm.idx.tmp" outputFile="%tm.ind.tmp"/>
-				<processor name="Sed2" path="sed.exe" arguments="-f D:\Dev\MIPT\TeX\tools\rumkidx2.sed" inputFile="%bm.ind.tmp" outputFile="%bm.ind"/>
+				<processor name="Makeindex-sed2" path="sed.exe" arguments="-f D:\TeX\tools\rumkidx2.sed" inputFile="%bm.ind.tmp" outputFile="%bm.ind"/>
 			</preProcessors>
 			<postProcessors/>
-			<viewer path="miktex-texworks.exe" closeBeforeCompilation="false">
+			<viewer path="evince.exe" closeBeforeCompilation="false">
 				<viewProjectCommand type="commandLine">
-					<commandLineCommand path="miktex-texworks.exe" arguments=" &quot;%bm.pdf&quot;"/>
+					<commandLineCommand path="evince.exe" arguments=" &quot;%bm.pdf&quot;"/>
 					<ddeCommand path="miktex-texworks.exe" server="" topic="System" command=""/>
 				</viewProjectCommand>
 				<viewCurrentFileCommand type="commandLine">
-					<commandLineCommand path="miktex-texworks.exe" arguments="  &quot;%bm.pdf&quot;"/>
+					<commandLineCommand path="evince.exe" arguments="  &quot;%bm.pdf&quot;"/>
 					<ddeCommand path="" server="" topic="System" command=""/>
 				</viewCurrentFileCommand>
 				<viewCloseCommand type="commandLine">
