@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% КОНФИГУРАЦИОННЫЙ ФАЙЛ
+%% РљРћРќР¤РР“РЈР РђР¦РРћРќРќР«Р™ Р¤РђР™Р›
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Подключаем и настраиваем стилевой пакет KOMA-Sript
+%% РџРѕРґРєР»СЋС‡Р°РµРј Рё РЅР°СЃС‚СЂР°РёРІР°РµРј СЃС‚РёР»РµРІРѕР№ РїР°РєРµС‚ KOMA-Sript
 \documentclass{scrreprt}
 \KOMAoptions{
   fontsize = 12pt, 
@@ -17,27 +17,27 @@
   draft
 }
 
-%% Настраиваем формат подписей к таблицам и рисункам
+%% РќР°СЃС‚СЂР°РёРІР°РµРј С„РѕСЂРјР°С‚ РїРѕРґРїРёСЃРµР№ Рє С‚Р°Р±Р»РёС†Р°Рј Рё СЂРёСЃСѓРЅРєР°Рј
 \setkomafont{captionlabel}{\bfseries\sffamily}
 \setkomafont{caption}{\sffamily}
 \renewcommand*{\captionformat}{~}
 
-%% Настраиваем формат сноски
+%% РќР°СЃС‚СЂР°РёРІР°РµРј С„РѕСЂРјР°С‚ СЃРЅРѕСЃРєРё
 \deffootnote[1.5em]{0em}{1em}{\textsuperscript{\thefootnotemark}\,}
 
-%% Выключаем предупреждение об использовании устаревшего макроса \float@addtolist,
-%% который присутствует, например, в пакете listings
+%% Р’С‹РєР»СЋС‡Р°РµРј РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ РѕР± РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё СѓСЃС‚Р°СЂРµРІС€РµРіРѕ РјР°РєСЂРѕСЃР° \float@addtolist,
+%% РєРѕС‚РѕСЂС‹Р№ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚, РЅР°РїСЂРёРјРµСЂ, РІ РїР°РєРµС‚Рµ listings
 \usepackage{scrhack}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Настраиваем кодировкии и язык
+%% РќР°СЃС‚СЂР°РёРІР°РµРј РєРѕРґРёСЂРѕРІРєРёРё Рё СЏР·С‹Рє
 \defaulthyphenchar=127
 \usepackage{cmap}
 \usepackage[T2A]{fontenc}
-\usepackage[cp1251]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[english, greek, russian]{babel}
 
-%% Настраиваем поля и внешний вид страницы
+%% РќР°СЃС‚СЂР°РёРІР°РµРј РїРѕР»СЏ Рё РІРЅРµС€РЅРёР№ РІРёРґ СЃС‚СЂР°РЅРёС†С‹
 \usepackage{geometry}   
 \geometry{
   left = 3cm,
@@ -49,21 +49,21 @@
   footskip = 1cm
 }
 
-%% Устанавливаем полуторный межстрочный интервал
+%% РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїРѕР»СѓС‚РѕСЂРЅС‹Р№ РјРµР¶СЃС‚СЂРѕС‡РЅС‹Р№ РёРЅС‚РµСЂРІР°Р»
 \usepackage{setspace}
 \onehalfspacing
 
-%% Включаем отступ у первого абзаца
+%% Р’РєР»СЋС‡Р°РµРј РѕС‚СЃС‚СѓРї Сѓ РїРµСЂРІРѕРіРѕ Р°Р±Р·Р°С†Р°
 \usepackage{indentfirst}
-%5 Устанавливаем значение абазацного отступа
+%5 РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·РЅР°С‡РµРЅРёРµ Р°Р±Р°Р·Р°С†РЅРѕРіРѕ РѕС‚СЃС‚СѓРїР°
 \setlength{\parindent}{1cm} 
 
-%% Микротипографика (оптическое выравнивание текста)
+%% РњРёРєСЂРѕС‚РёРїРѕРіСЂР°С„РёРєР° (РѕРїС‚РёС‡РµСЃРєРѕРµ РІС‹СЂР°РІРЅРёРІР°РЅРёРµ С‚РµРєСЃС‚Р°)
 \usepackage[protrusion, expansion]{microtype}
 
-%% Подключаем и настраиваем пакет для подрисунков
+%% РџРѕРґРєР»СЋС‡Р°РµРј Рё РЅР°СЃС‚СЂР°РёРІР°РµРј РїР°РєРµС‚ РґР»СЏ РїРѕРґСЂРёСЃСѓРЅРєРѕРІ
 \usepackage[hang, raggedright, small]{subfigure}
-% Подрисунки обозначаются русскими буквами
+% РџРѕРґСЂРёСЃСѓРЅРєРё РѕР±РѕР·РЅР°С‡Р°СЋС‚СЃСЏ СЂСѓСЃСЃРєРёРјРё Р±СѓРєРІР°РјРё
 \renewcommand{\thesubfigure}{\emph{\asbuk{subfigure}}}
 \makeatletter
   \renewcommand{\p@subfigure}{\thefigure}
@@ -76,10 +76,10 @@
   \renewcommand{\@thesubtable}{\emph{\asbuk{subtable}})~}
 \makeatother
 
-%% Пакет, который не позволяет плавающим объетам выходить за пределы разделов
+%% РџР°РєРµС‚, РєРѕС‚РѕСЂС‹Р№ РЅРµ РїРѕР·РІРѕР»СЏРµС‚ РїР»Р°РІР°СЋС‰РёРј РѕР±СЉРµС‚Р°Рј РІС‹С…РѕРґРёС‚СЊ Р·Р° РїСЂРµРґРµР»С‹ СЂР°Р·РґРµР»РѕРІ
 \usepackage[section]{placeins}
 \makeatletter 
-% Дополним, чтобы они не выходили и за пределы подразделов
+% Р”РѕРїРѕР»РЅРёРј, С‡С‚РѕР±С‹ РѕРЅРё РЅРµ РІС‹С…РѕРґРёР»Рё Рё Р·Р° РїСЂРµРґРµР»С‹ РїРѕРґСЂР°Р·РґРµР»РѕРІ
 \AtBeginDocument{%
   \expandafter\renewcommand\expandafter\subsection\expandafter
     {\expandafter\@fb@subsecFB\subsection}%
@@ -90,7 +90,7 @@
 }
 \makeatother 
 
-%% Подключаем пакет TikZ и дополнительные пакеты к нему 
+%% РџРѕРґРєР»СЋС‡Р°РµРј РїР°РєРµС‚ TikZ Рё РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїР°РєРµС‚С‹ Рє РЅРµРјСѓ 
 \usepackage{tikz}
 \makeatletter
 \pgfdeclareshape{fflop} {
@@ -199,41 +199,41 @@
     dashed
   }
 }
-% Настраиваем слои
+% РќР°СЃС‚СЂР°РёРІР°РµРј СЃР»РѕРё
 \pgfdeclarelayer{background}
 \pgfdeclarelayer{foreground}
 \pgfsetlayers{background,main,foreground}
 
-%% Подключаем и настраиваем пакет для кастомизированных списков
+%% РџРѕРґРєР»СЋС‡Р°РµРј Рё РЅР°СЃС‚СЂР°РёРІР°РµРј РїР°РєРµС‚ РґР»СЏ РєР°СЃС‚РѕРјРёР·РёСЂРѕРІР°РЅРЅС‹С… СЃРїРёСЃРєРѕРІ
 \usepackage{enumitem}
-% Регистрируем новый счетчик для списков с русскими буквами
+% Р РµРіРёСЃС‚СЂРёСЂСѓРµРј РЅРѕРІС‹Р№ СЃС‡РµС‚С‡РёРє РґР»СЏ СЃРїРёСЃРєРѕРІ СЃ СЂСѓСЃСЃРєРёРјРё Р±СѓРєРІР°РјРё
 \makeatletter
   \AddEnumerateCounter{\asbuk}{\@asbuk}{\cyrzh}
   \AddEnumerateCounter{\Asbuk}{\@Asbuk}{\CYRZH}
 \makeatother
-% Убирем промежутки до и после списка и настраиваем выравнивание
+% РЈР±РёСЂРµРј РїСЂРѕРјРµР¶СѓС‚РєРё РґРѕ Рё РїРѕСЃР»Рµ СЃРїРёСЃРєР° Рё РЅР°СЃС‚СЂР°РёРІР°РµРј РІС‹СЂР°РІРЅРёРІР°РЅРёРµ
 \setlist{leftmargin = *, nolistsep}
-% Для списков первого уровня устанавливаем отсуп, равный абзацному
+% Р”Р»СЏ СЃРїРёСЃРєРѕРІ РїРµСЂРІРѕРіРѕ СѓСЂРѕРІРЅСЏ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РѕС‚СЃСѓРї, СЂР°РІРЅС‹Р№ Р°Р±Р·Р°С†РЅРѕРјСѓ
 \setlist[1]{labelindent = \parindent}
-% Перечислением по умолчанием делаем счет вида 1)
+% РџРµСЂРµС‡РёСЃР»РµРЅРёРµРј РїРѕ СѓРјРѕР»С‡Р°РЅРёРµРј РґРµР»Р°РµРј СЃС‡РµС‚ РІРёРґР° 1)
 \setenumerate{label = \arabic*)}
-% Символом для списков по умолчанию делаем тире
+% РЎРёРјРІРѕР»РѕРј РґР»СЏ СЃРїРёСЃРєРѕРІ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґРµР»Р°РµРј С‚РёСЂРµ
 \setitemize{label = \textemdash}
 
-%% Настраиваем пакеты для работы с таблицами
+%% РќР°СЃС‚СЂР°РёРІР°РµРј РїР°РєРµС‚С‹ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ С‚Р°Р±Р»РёС†Р°РјРё
 \usepackage{longtable, array, colortbl}
 \usepackage{booktabs}
 \usepackage{multirow}
 \newcolumntype{L}{>{$}l<{$}}
 \newcolumntype{C}{>{$}c<{$}}
 
-% Математическая (math) колонка
+% РњР°С‚РµРјР°С‚РёС‡РµСЃРєР°СЏ (math) РєРѕР»РѕРЅРєР°
 \newcolumntype{m}[1]{>{\raggedright\arraybackslash $}p{#1}<{$}}
-% Текстовая (text) колонка
+% РўРµРєСЃС‚РѕРІР°СЏ (text) РєРѕР»РѕРЅРєР°
 \newcolumntype{t}[1]{>{\raggedright\arraybackslash}p{#1}<{}}
 \renewcommand{\arraystretch}{1.3}
 \renewcommand{\arrayrulewidth}{0.6pt}
-% Устанавливаем цвет для ячеек шапки таблицы
+% РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С†РІРµС‚ РґР»СЏ СЏС‡РµРµРє С€Р°РїРєРё С‚Р°Р±Р»РёС†С‹
 \colorlet{tableheadcolor}{gray!25}
 
 \usepackage{lscape, pdflscape} 
@@ -241,25 +241,25 @@
 
 \usepackage[group-minimum-digits = 4]{siunitx}
 
-%% Подключаем пакет xspace
+%% РџРѕРґРєР»СЋС‡Р°РµРј РїР°РєРµС‚ xspace
 \usepackage{xspace}
-% Чтобы не ставил пробел перед кавычками и после кавычек
+% Р§С‚РѕР±С‹ РЅРµ СЃС‚Р°РІРёР» РїСЂРѕР±РµР» РїРµСЂРµРґ РєР°РІС‹С‡РєР°РјРё Рё РїРѕСЃР»Рµ РєР°РІС‹С‡РµРє
 \xspaceaddexceptions{<< >> ,, ``}
 
-%% Подключаем пакет дат
+%% РџРѕРґРєР»СЋС‡Р°РµРј РїР°РєРµС‚ РґР°С‚
 \usepackage{datetime}
-% Устанавливаем формат даты
+% РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С„РѕСЂРјР°С‚ РґР°С‚С‹
 \ddmmyydate
 
-%% Подключаем пакет для отображения листингов программ
+%% РџРѕРґРєР»СЋС‡Р°РµРј РїР°РєРµС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ Р»РёСЃС‚РёРЅРіРѕРІ РїСЂРѕРіСЂР°РјРј
 \usepackage{listings}
 
-\renewcommand{\lstlistingname}{Листинг}
-% Ставим точку после номера перед названием
+\renewcommand{\lstlistingname}{Р›РёСЃС‚РёРЅРі}
+% РЎС‚Р°РІРёРј С‚РѕС‡РєСѓ РїРѕСЃР»Рµ РЅРѕРјРµСЂР° РїРµСЂРµРґ РЅР°Р·РІР°РЅРёРµРј
 \makeatletter
   \AtBeginDocument{\renewcommand \thelstlisting{\thechapter.\@arabic\c@lstlisting\autodot}}
 \makeatother
-% Настраиваем стиль по-умолчанию
+% РќР°СЃС‚СЂР°РёРІР°РµРј СЃС‚РёР»СЊ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
 
 
 \DeclareNewTOC[
@@ -269,58 +269,58 @@
   floatpos = h,
   floattype = 4,
   nonfloat,
-  name = Листинг,
-  listname = {Список листингов}
+  name = Р›РёСЃС‚РёРЅРі,
+  listname = {РЎРїРёСЃРѕРє Р»РёСЃС‚РёРЅРіРѕРІ}
 ]{lor}
 \setuptoc{lor}{chapteratlist}
 \makeatletter
   \AtBeginDocument{\renewcommand \thecodebox{\thechapter.\@arabic\c@codebox}}
 \makeatother
 
-%% Подключаем пакет для форматирования алгоритмов
+%% РџРѕРґРєР»СЋС‡Р°РµРј РїР°РєРµС‚ РґР»СЏ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЏ Р°Р»РіРѕСЂРёС‚РјРѕРІ
 \usepackage[noend]{algorithmic}
 \algsetup{
   linenosize = \tiny,
   linenodelimiter = \ 
 }
-% Русифицируем ключевые слова
-\def\algorithmicrequire{\textbf{Вход:}}
-\def\algorithmicensure{\textbf{Выход:}}
-\def\algorithmicif{\textbf{если}}
-\def\algorithmicthen{\textbf{то}}
-\def\algorithmicelse{\textbf{иначе}}
-\def\algorithmicelsif{\textbf{иначе если}}
-\def\algorithmicfor{\textbf{для}}
-\def\algorithmicforall{\textbf{для всех}}
+% Р СѓСЃРёС„РёС†РёСЂСѓРµРј РєР»СЋС‡РµРІС‹Рµ СЃР»РѕРІР°
+\def\algorithmicrequire{\textbf{Р’С…РѕРґ:}}
+\def\algorithmicensure{\textbf{Р’С‹С…РѕРґ:}}
+\def\algorithmicif{\textbf{РµСЃР»Рё}}
+\def\algorithmicthen{\textbf{С‚Рѕ}}
+\def\algorithmicelse{\textbf{РёРЅР°С‡Рµ}}
+\def\algorithmicelsif{\textbf{РёРЅР°С‡Рµ РµСЃР»Рё}}
+\def\algorithmicfor{\textbf{РґР»СЏ}}
+\def\algorithmicforall{\textbf{РґР»СЏ РІСЃРµС…}}
 \def\algorithmicdo{}
-\def\algorithmicwhile{\textbf{пока}}
-\def\algorithmicrepeat{\textbf{повторять}}
-\def\algorithmicuntil{\textbf{пока}}
-\def\algorithmicloop{\textbf{цикл}}
+\def\algorithmicwhile{\textbf{РїРѕРєР°}}
+\def\algorithmicrepeat{\textbf{РїРѕРІС‚РѕСЂСЏС‚СЊ}}
+\def\algorithmicuntil{\textbf{РїРѕРєР°}}
+\def\algorithmicloop{\textbf{С†РёРєР»}}
 \def\algorithmiccomment#1{\quad/\!/ \textit{#1}}
 
-%% Подсключаем пакет для отображения гиперссылок
+%% РџРѕРґСЃРєР»СЋС‡Р°РµРј РїР°РєРµС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РіРёРїРµСЂСЃСЃС‹Р»РѕРє
 \usepackage{hyperref}
 \urlstyle{sf}
 
-% Делаем правильный кернинг двойного слеша
+% Р”РµР»Р°РµРј РїСЂР°РІРёР»СЊРЅС‹Р№ РєРµСЂРЅРёРЅРі РґРІРѕР№РЅРѕРіРѕ СЃР»РµС€Р°
 \makeatletter
 \g@addto@macro{\Url@acthash}{\Url@Edit\Url@String{//}{/\kern-0.2em/}}
 \makeatother
 
-% Русский математический рукописный шрифт
+% Р СѓСЃСЃРєРёР№ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРёР№ СЂСѓРєРѕРїРёСЃРЅС‹Р№ С€СЂРёС„С‚
 \usepackage{mathrsfs}
 
-% Готический шрифт
+% Р“РѕС‚РёС‡РµСЃРєРёР№ С€СЂРёС„С‚
 \usepackage{yfonts}
 
-% Диаграммы
+% Р”РёР°РіСЂР°РјРјС‹
 \usepackage{pb-diagram}
 
-% Для многострочных комментариев
+% Р”Р»СЏ РјРЅРѕРіРѕСЃС‚СЂРѕС‡РЅС‹С… РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ
 \usepackage{verbatim}
 
-%% Делаем подсчет объектов (страниц, рисунков, таблиц, биб. записей) в документе
+%% Р”РµР»Р°РµРј РїРѕРґСЃС‡РµС‚ РѕР±СЉРµРєС‚РѕРІ (СЃС‚СЂР°РЅРёС†, СЂРёСЃСѓРЅРєРѕРІ, С‚Р°Р±Р»РёС†, Р±РёР±. Р·Р°РїРёСЃРµР№) РІ РґРѕРєСѓРјРµРЅС‚Рµ
 \usepackage{totcount, etoolbox}
 \regtotcounter{page}
 \regtotcounter{figure}
@@ -353,19 +353,19 @@
 \pretocmd{\chapter}{\addtocounter{tottables}{\value{table}}\setcounter{table}{0}}{}{}
 \pretocmd{\chapter}{\addtocounter{totlistings}{\value{codebox}}\setcounter{codebox}{0}}{}{} 
 
-% Пакет для создания алфавитных указателей
+% РџР°РєРµС‚ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ Р°Р»С„Р°РІРёС‚РЅС‹С… СѓРєР°Р·Р°С‚РµР»РµР№
 \usepackage{makeidx}
 
-% Пакет для эпиграфов
+% РџР°РєРµС‚ РґР»СЏ СЌРїРёРіСЂР°С„РѕРІ
 \usepackage{epigraph}
 
-% Пакет для ссылки на последнюю страницу
+% РџР°РєРµС‚ РґР»СЏ СЃСЃС‹Р»РєРё РЅР° РїРѕСЃР»РµРґРЅСЋСЋ СЃС‚СЂР°РЅРёС†Сѓ
 \usepackage{lastpage}
 
-% Стрелки в тексте вне формул
+% РЎС‚СЂРµР»РєРё РІ С‚РµРєСЃС‚Рµ РІРЅРµ С„РѕСЂРјСѓР»
 \usepackage{textcomp}
 
-% Subsection без нумерации
+% Subsection Р±РµР· РЅСѓРјРµСЂР°С†РёРё
 \makeatletter
 \newcommand*\addsubsec{\secdef\@addsubsec\@saddsubsec}
 \newcommand*{\@addsubsec}{}
@@ -375,7 +375,7 @@
 \newcommand*{\@saddsubsec}[1]{\subsection*{#1}\@mkboth{}{}}
 \makeatother
 
-% Subsubsection без нумерации
+% Subsubsection Р±РµР· РЅСѓРјРµСЂР°С†РёРё
 \makeatletter
 \newcommand*\addsubsubsec{\secdef\@addsubsubsec\@saddsubsubsec}
 \newcommand*{\@addsubsubsec}{}
@@ -386,10 +386,10 @@
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Делаем правильные переносы в математических формулах, когда
-%% знак операции повторяется на новой строке 
+%% Р”РµР»Р°РµРј РїСЂР°РІРёР»СЊРЅС‹Рµ РїРµСЂРµРЅРѕСЃС‹ РІ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРёС… С„РѕСЂРјСѓР»Р°С…, РєРѕРіРґР°
+%% Р·РЅР°Рє РѕРїРµСЂР°С†РёРё РїРѕРІС‚РѕСЂСЏРµС‚СЃСЏ РЅР° РЅРѕРІРѕР№ СЃС‚СЂРѕРєРµ 
 %%
-%% Код основан на коде пакета 'russmath', автор: leontiev@aport.ru
+%% РљРѕРґ РѕСЃРЅРѕРІР°РЅ РЅР° РєРѕРґРµ РїР°РєРµС‚Р° 'russmath', Р°РІС‚РѕСЂ: leontiev@aport.ru
 %%
 \newif\ifBrkFlag
 \def\allowmathbreak{\global\BrkFlagtrue\global\relpenalty=10000\global\binoppenalty=10000}

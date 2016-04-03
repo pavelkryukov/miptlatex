@@ -1,53 +1,53 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% МАКРОСЫ
+%% РњРђРљР РћРЎР«
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%
 
-%% Текстовые сокращения
-% Exapmli gratia (eg.) = Например (напр.)
-\newcommand{\eg}{например,\xspace}
-\newcommand{\Eg}{Например,\xspace}
-% Et cetera (etc.) = И так далее (и т.д.)
-\renewcommand{\etc}{и~т.\,д.\xspace}
-% Id est (i.e.) = То есть (т.е.)
-\newcommand{\ie}{т.\,е.\xspace}
-\newcommand{\Ie}{Т.\,е.\xspace}
-% Et alii (et al.) = И другие (и др.)
-\newcommand{\etal}{и~др.\xspace}
-%% (стр. 99)
-\newcommand{\pagerefrus}[1]{(стр.\,\pageref{#1})}
+%% РўРµРєСЃС‚РѕРІС‹Рµ СЃРѕРєСЂР°С‰РµРЅРёСЏ
+% Exapmli gratia (eg.) = РќР°РїСЂРёРјРµСЂ (РЅР°РїСЂ.)
+\newcommand{\eg}{РЅР°РїСЂРёРјРµСЂ,\xspace}
+\newcommand{\Eg}{РќР°РїСЂРёРјРµСЂ,\xspace}
+% Et cetera (etc.) = Р С‚Р°Рє РґР°Р»РµРµ (Рё С‚.Рґ.)
+\renewcommand{\etc}{Рё~С‚.\,Рґ.\xspace}
+% Id est (i.e.) = РўРѕ РµСЃС‚СЊ (С‚.Рµ.)
+\newcommand{\ie}{С‚.\,Рµ.\xspace}
+\newcommand{\Ie}{Рў.\,Рµ.\xspace}
+% Et alii (et al.) = Р РґСЂСѓРіРёРµ (Рё РґСЂ.)
+\newcommand{\etal}{Рё~РґСЂ.\xspace}
+%% (СЃС‚СЂ. 99)
+\newcommand{\pagerefrus}[1]{(СЃС‚СЂ.\,\pageref{#1})}
 
-%% Макросы для заглушек
+%% РњР°РєСЂРѕСЃС‹ РґР»СЏ Р·Р°РіР»СѓС€РµРє
 \newcommand{\fixme}{FIXME}
 \newcommand{\unref}{[???]}
 
-\newcommand{\kips}{$\text{кк}/\text{с}$\xspace}
+\newcommand{\kips}{$\text{РєРє}/\text{СЃ}$\xspace}
 
-%% Макросы
-%% Для выделения текста
+%% РњР°РєСЂРѕСЃС‹
+%% Р”Р»СЏ РІС‹РґРµР»РµРЅРёСЏ С‚РµРєСЃС‚Р°
 \newcommand{\strong}[1]{\textbf{#1}}
-% Для вставки иностранных слов и словосочетаний
-\newcommand{\foreigne}[1]{\mbox{англ.}~\emph{\foreignlanguage{english}{#1}}} % английский
-\newcommand{\foreigng}[1]{\mbox{греч.}~\foreignlanguage{greek}{#1}} % греческий
-\newcommand{\foreignl}[1]{\mbox{лат.}~\emph{\foreignlanguage{latin}{#1}}} % латинский
-\newcommand{\foreignfrak}[1]{\mbox{нем.}~\textfrak{#1}} % немецкий фрактурный
-%% Для выделения ключевых слов (терминов)
+% Р”Р»СЏ РІСЃС‚Р°РІРєРё РёРЅРѕСЃС‚СЂР°РЅРЅС‹С… СЃР»РѕРІ Рё СЃР»РѕРІРѕСЃРѕС‡РµС‚Р°РЅРёР№
+\newcommand{\foreigne}[1]{\mbox{Р°РЅРіР».}~\emph{\foreignlanguage{english}{#1}}} % Р°РЅРіР»РёР№СЃРєРёР№
+\newcommand{\foreigng}[1]{\mbox{РіСЂРµС‡.}~\foreignlanguage{greek}{#1}} % РіСЂРµС‡РµСЃРєРёР№
+\newcommand{\foreignl}[1]{\mbox{Р»Р°С‚.}~\emph{\foreignlanguage{latin}{#1}}} % Р»Р°С‚РёРЅСЃРєРёР№
+\newcommand{\foreignfrak}[1]{\mbox{РЅРµРј.}~\textfrak{#1}} % РЅРµРјРµС†РєРёР№ С„СЂР°РєС‚СѓСЂРЅС‹Р№
+%% Р”Р»СЏ РІС‹РґРµР»РµРЅРёСЏ РєР»СЋС‡РµРІС‹С… СЃР»РѕРІ (С‚РµСЂРјРёРЅРѕРІ)
 \newcommand{\keyword}[2][russian]{\textsf{\foreignlanguage{#1}{#2}}}
 \newcommand{\keyworde}[2]{\textsf{#1} (\foreigne{#2})}
 \newcommand{\keywordg}[2]{\textsf{#1} (\foreigng{#2})}
 \newcommand{\keywordl}[2]{\textsf{#1} (\foreignl{#2})}
 \newcommand{\keywordfrak}[2]{\textsf{#1} (\foreignfrak{#2})}
 
-%% Для вставки сокращений
+%% Р”Р»СЏ РІСЃС‚Р°РІРєРё СЃРѕРєСЂР°С‰РµРЅРёР№
 \newcommand{\gap}{\ensuremath{\langle\ldots\rangle}\xspace}
-%% Для вставки ссылки на рисунки и таблицы
-\newcommand{\seefig}[1]{см.~рис.~\ref{#1}}
-\newcommand{\fig}[1]{рис.~\ref{#1}}
-\newcommand{\seetab}[1]{см.~табл.~\ref{#1}}
-\newcommand{\tab}[1]{табл.~\ref{#1}}
+%% Р”Р»СЏ РІСЃС‚Р°РІРєРё СЃСЃС‹Р»РєРё РЅР° СЂРёСЃСѓРЅРєРё Рё С‚Р°Р±Р»РёС†С‹
+\newcommand{\seefig}[1]{СЃРј.~СЂРёСЃ.~\ref{#1}}
+\newcommand{\fig}[1]{СЂРёСЃ.~\ref{#1}}
+\newcommand{\seetab}[1]{СЃРј.~С‚Р°Р±Р».~\ref{#1}}
+\newcommand{\tab}[1]{С‚Р°Р±Р».~\ref{#1}}
 
-%% Окружение для вставки длинных цитат на различных языках
+%% РћРєСЂСѓР¶РµРЅРёРµ РґР»СЏ РІСЃС‚Р°РІРєРё РґР»РёРЅРЅС‹С… С†РёС‚Р°С‚ РЅР° СЂР°Р·Р»РёС‡РЅС‹С… СЏР·С‹РєР°С…
 \newenvironment{mquote}[1][russian]{%
   \bigskip%
   \begin{addmargin}{1.1\parindent}%
@@ -60,7 +60,7 @@
   \bigskip%
 }
 
-%% Более красивый вариант написания названия языка C++
+%% Р‘РѕР»РµРµ РєСЂР°СЃРёРІС‹Р№ РІР°СЂРёР°РЅС‚ РЅР°РїРёСЃР°РЅРёСЏ РЅР°Р·РІР°РЅРёСЏ СЏР·С‹РєР° C++
 \newcommand{\CPP}{C\kern-.05em\raise.23ex\hbox{+\kern-.05em+}\xspace}
 \newcommand{\CCPP}{C/C\kern-.05em\raise.23ex\hbox{+\kern-.05em+}\xspace}
 
@@ -68,41 +68,41 @@
 
 \renewcommand{\land}{\bbin{\mathbin{\&}}}
 \renewcommand{\lor}{\bbin{\mathbin{\vee}}}
-%% Импликация
+%% РРјРїР»РёРєР°С†РёСЏ
 \newcommand{\impl}{\bbin{\mathbin{\Rightarrow}}}
-%% Эквивалентость
+%% Р­РєРІРёРІР°Р»РµРЅС‚РѕСЃС‚СЊ
 \newcommand{\equi}{\bbin{\mathbin{\Leftrightarrow}}}
-%% Обратная импликация (converse implication)
+%% РћР±СЂР°С‚РЅР°СЏ РёРјРїР»РёРєР°С†РёСЏ (converse implication)
 \newcommand{\coimpl}{\bbin{\mathbin{\Leftarrow}}}
 
 \newcommand{\bin}{\brel{\in}}
 \newcommand{\nin}{\brel{\notin}}
-%% Значок пустого множество (empty set)
+%% Р—РЅР°С‡РѕРє РїСѓСЃС‚РѕРіРѕ РјРЅРѕР¶РµСЃС‚РІРѕ (empty set)
 \newcommand{\es}{\varnothing}
-%% Равенство 
+%% Р Р°РІРµРЅСЃС‚РІРѕ 
 \newcommand{\eq}{\brel{=}}
-%% Неравенство 
+%% РќРµСЂР°РІРµРЅСЃС‚РІРѕ 
 \renewcommand{\neq}{\brel{\ne}}
-%% Больше или равно (greater or equal)
+%% Р‘РѕР»СЊС€Рµ РёР»Рё СЂР°РІРЅРѕ (greater or equal)
 \renewcommand{\ge}{\brel{>}}
 \renewcommand{\geq}{\brel{\geqslant}}
-%% Меньше или равно (less or equal)
+%% РњРµРЅСЊС€Рµ РёР»Рё СЂР°РІРЅРѕ (less or equal)
 \renewcommand{\le}{\brel{<}}
 \renewcommand{\leq}{\brel{\leqslant}}
-%% Строгое подмножество
+%% РЎС‚СЂРѕРіРѕРµ РїРѕРґРјРЅРѕР¶РµСЃС‚РІРѕ
 \newcommand{\subs}{\brel{\subset}}
-%% Подмножество
+%% РџРѕРґРјРЅРѕР¶РµСЃС‚РІРѕ
 \newcommand{\subseq}{\brel{\subseteq}}
-%% Разность (without)
+%% Р Р°Р·РЅРѕСЃС‚СЊ (without)
 \newcommand{\wo}{\bbin{\setminus}}
-%% Симметрическая разность
+%% РЎРёРјРјРµС‚СЂРёС‡РµСЃРєР°СЏ СЂР°Р·РЅРѕСЃС‚СЊ
 \newcommand{\swo}{\bbin{\mathbin{\div}}}
-%% Декартово произведение
+%% Р”РµРєР°СЂС‚РѕРІРѕ РїСЂРѕРёР·РІРµРґРµРЅРёРµ
 \newcommand{\dec}{\bbin{\times}}
-%% Запретитель разрыва страницы между двоеточием и списком
+%% Р—Р°РїСЂРµС‚РёС‚РµР»СЊ СЂР°Р·СЂС‹РІР° СЃС‚СЂР°РЅРёС†С‹ РјРµР¶РґСѓ РґРІРѕРµС‚РѕС‡РёРµРј Рё СЃРїРёСЃРєРѕРј
 \makeatletter
 \newcommand{\listnopagebreak}{\par\nobreak\@afterheading}
 \makeatother
-%% До и после нашей эры
-\newcommand{\bc}{до\,н.\,э.}
-\newcommand{\ad}{н.\,э.}
+%% Р”Рѕ Рё РїРѕСЃР»Рµ РЅР°С€РµР№ СЌСЂС‹
+\newcommand{\bc}{РґРѕ\,РЅ.\,СЌ.}
+\newcommand{\ad}{РЅ.\,СЌ.}

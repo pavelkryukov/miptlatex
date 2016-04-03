@@ -908,6 +908,7 @@ FUNCTION {inbook}
   fin.entry
 }
 
+
 FUNCTION {incollection}
 { output.bibitem
   author.before
@@ -927,6 +928,26 @@ FUNCTION {incollection}
   format.issue output
   new.block
   format.pages.page output
+  fin.entry
+}
+
+FUNCTION {online}
+{ output.bibitem
+  format.authors output
+  title howpublished new.sentence.checkb
+  format.title add.doi add.medium "title" output.check
+  howpublished new.dblslash.checka
+  howpublished enclose.square.brackets output
+  editor.organization.after
+  new.sentence
+  new.block
+  output.address.publisher
+  format.date output
+  new.block
+  output.eprint.url
+  new.sentence
+  note output
+  format.annote output
   fin.entry
 }
 
@@ -958,6 +979,26 @@ FUNCTION {inproceedings}
   format.pages.page output
   new.sentence
   format.url output
+  fin.entry
+}
+
+FUNCTION {online}
+{ output.bibitem
+  format.authors output
+  title howpublished new.sentence.checkb
+  format.title add.doi add.medium "title" output.check
+  howpublished new.dblslash.checka
+  howpublished enclose.square.brackets output
+  editor.organization.after
+  new.sentence
+  new.block
+  output.address.publisher
+  format.date output
+  new.block
+  output.eprint.url
+  new.sentence
+  note output
+  format.annote output
   fin.entry
 }
 

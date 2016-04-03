@@ -1,13 +1,13 @@
-% Общая конфигурация
+% РћР±С‰Р°СЏ РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ
 \input{../../configs/config.tex}
 \input{../../configs/macros.tex}
 \input{../../configs/biblio.tex}
 
-% Названия
-\newcommand{\worktitle}{Теплопроводность в несжимаемой жидкости}
-\newcommand{\worksubject}{Курсовая работа по курсу <<Качественные методы гидродинамики>>}
+% РќР°Р·РІР°РЅРёСЏ
+\newcommand{\worktitle}{РўРµРїР»РѕРїСЂРѕРІРѕРґРЅРѕСЃС‚СЊ РІ РЅРµСЃР¶РёРјР°РµРјРѕР№ Р¶РёРґРєРѕСЃС‚Рё}
+\newcommand{\worksubject}{РљСѓСЂСЃРѕРІР°СЏ СЂР°Р±РѕС‚Р° РїРѕ РєСѓСЂСЃСѓ <<РљР°С‡РµСЃС‚РІРµРЅРЅС‹Рµ РјРµС‚РѕРґС‹ РіРёРґСЂРѕРґРёРЅР°РјРёРєРё>>}
 
-% Настраиваем параметры документа
+% РќР°СЃС‚СЂР°РёРІР°РµРј РїР°СЂР°РјРµС‚СЂС‹ РґРѕРєСѓРјРµРЅС‚Р°
 \hypersetup{
   unicode,
   colorlinks,
@@ -17,9 +17,9 @@
   bookmarksnumbered = true,
   bookmarksopenlevel = 1,
   pdftitle = {\worktitle},
-  pdfauthor = {Павел Крюков <kryukov@frtk.ru>},
+  pdfauthor = {РџР°РІРµР» РљСЂСЋРєРѕРІ <kryukov@frtk.ru>},
   pdfsubject = {\worksubject},
-  pdfkeywords = {гидродинамика, жидкость, несжимаемая, теплопроводность},
+  pdfkeywords = {РіРёРґСЂРѕРґРёРЅР°РјРёРєР°, Р¶РёРґРєРѕСЃС‚СЊ, РЅРµСЃР¶РёРјР°РµРјР°СЏ, С‚РµРїР»РѕРїСЂРѕРІРѕРґРЅРѕСЃС‚СЊ},
   pdfcreator = {LaTeX 2e with TeXnicCenter 2.0},
   pdflang = {ru-RU},
   pdfpagelayout = {SinglePage}
@@ -27,15 +27,15 @@
 
 \begin{document}
 
-%% Титульный лист
+%% РўРёС‚СѓР»СЊРЅС‹Р№ Р»РёСЃС‚
 \include{chapters/title}
 
-%% Тело
+%% РўРµР»Рѕ
 \include{chapters/body}
 
-%% Приложения
+%% РџСЂРёР»РѕР¶РµРЅРёСЏ
 \appendix
-% Делаем нумерацию приложений русскими буквами
+% Р”РµР»Р°РµРј РЅСѓРјРµСЂР°С†РёСЋ РїСЂРёР»РѕР¶РµРЅРёР№ СЂСѓСЃСЃРєРёРјРё Р±СѓРєРІР°РјРё
 \renewcommand{\thechapter}{\Asbuk{chapter}}
 
 \end{document}

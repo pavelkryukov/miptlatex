@@ -1,13 +1,13 @@
-% Общая конфигурация
+% РћР±С‰Р°СЏ РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ
 \input{../../configs/config.tex}
 \input{../../configs/macros.tex}
 \input{../../configs/biblio.tex}
 
-% Названия
-\newcommand{\worktitle}{Пути и способы реализации компьютерной IP-телефонии в сетях ЭВМ}
-\newcommand{\worksubject}{Реферат по курсу <<Архитектура и технологии сетей>>}
+% РќР°Р·РІР°РЅРёСЏ
+\newcommand{\worktitle}{РџСѓС‚Рё Рё СЃРїРѕСЃРѕР±С‹ СЂРµР°Р»РёР·Р°С†РёРё РєРѕРјРїСЊСЋС‚РµСЂРЅРѕР№ IP-С‚РµР»РµС„РѕРЅРёРё РІ СЃРµС‚СЏС… Р­Р’Рњ}
+\newcommand{\worksubject}{Р РµС„РµСЂР°С‚ РїРѕ РєСѓСЂСЃСѓ <<РђСЂС…РёС‚РµРєС‚СѓСЂР° Рё С‚РµС…РЅРѕР»РѕРіРёРё СЃРµС‚РµР№>>}
 
-% Настраиваем параметры документа
+% РќР°СЃС‚СЂР°РёРІР°РµРј РїР°СЂР°РјРµС‚СЂС‹ РґРѕРєСѓРјРµРЅС‚Р°
 \hypersetup{
   unicode,
   colorlinks,
@@ -17,9 +17,9 @@
   bookmarksnumbered = true,
   bookmarksopenlevel = 1,
   pdftitle = {\worktitle},
-  pdfauthor = {Павел Крюков <kryukov@frtk.ru>},
+  pdfauthor = {РџР°РІРµР» РљСЂСЋРєРѕРІ <kryukov@frtk.ru>},
   pdfsubject = {\worksubject},
-  pdfkeywords = {гидродинамика, жидкость, несжимаемая, теплопроводность},
+  pdfkeywords = {РіРёРґСЂРѕРґРёРЅР°РјРёРєР°, Р¶РёРґРєРѕСЃС‚СЊ, РЅРµСЃР¶РёРјР°РµРјР°СЏ, С‚РµРїР»РѕРїСЂРѕРІРѕРґРЅРѕСЃС‚СЊ},
   pdfcreator = {LaTeX 2e with TeXnicCenter 2.0},
   pdflang = {ru-RU},
   pdfpagelayout = {SinglePage}
@@ -27,30 +27,30 @@
 
 \begin{document}
 
-%% Титульный лист
+%% РўРёС‚СѓР»СЊРЅС‹Р№ Р»РёСЃС‚
 \include{chapters/title}
 
-%% Содержание
+%% РЎРѕРґРµСЂР¶Р°РЅРёРµ
 \include{chapters/contents}
 
-%% Введение
+%% Р’РІРµРґРµРЅРёРµ
 \include{chapters/intro}
 
-%% Сравнительный анализ
+%% РЎСЂР°РІРЅРёС‚РµР»СЊРЅС‹Р№ Р°РЅР°Р»РёР·
 \include{chapters/analysis}
 
-%% Анализ рынка
+%% РђРЅР°Р»РёР· СЂС‹РЅРєР°
 \include{chapters/market}
 
-%% Заключение
+%% Р—Р°РєР»СЋС‡РµРЅРёРµ
 \include{chapters/outro}
 
-%% Список литературы
+%% РЎРїРёСЃРѕРє Р»РёС‚РµСЂР°С‚СѓСЂС‹
 \include{chapters/bibliography}
 
-%% Приложения
+%% РџСЂРёР»РѕР¶РµРЅРёСЏ
 \appendix
-% Делаем нумерацию приложений русскими буквами
+% Р”РµР»Р°РµРј РЅСѓРјРµСЂР°С†РёСЋ РїСЂРёР»РѕР¶РµРЅРёР№ СЂСѓСЃСЃРєРёРјРё Р±СѓРєРІР°РјРё
 \renewcommand{\thechapter}{\Asbuk{chapter}}
 
 \end{document}
